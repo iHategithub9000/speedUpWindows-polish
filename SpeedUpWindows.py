@@ -1,3 +1,7 @@
+from tkinter import messagebox as mb
+import time, os, sys, ctypes
+
+
 def CheckAdminRights(): #function to check if the program has admin rights
     import ctypes, os
     try:
@@ -8,6 +12,7 @@ def CheckAdminRights(): #function to check if the program has admin rights
     return is_admin
 
 has_admin = CheckAdminRights()
+#has_admin = True
 if has_admin == True:
     bloatware1 = ["echo hello", "echo world", "start-sleep -seconds 1"] # list of commands (test)
 
@@ -25,8 +30,7 @@ if has_admin == True:
         "Get-AppxPackage *MicrosoftSolitaireCollection* | Remove-AppxPackage",
         ]
 
-    bloatmsg = '''
-    Would you like to remove the windows 10 Bloatware packages?
+    bloatmsg = '''Would you like to remove the windows 10 Bloatware packages?
 
     Packages to be removed:
         *3DBuilder*
@@ -42,9 +46,7 @@ if has_admin == True:
         *MicrosoftSolitaireCollection*
     '''
 
-    from tkinter import messagebox as mb
-    import time
-    import os
+    
 
     mb.showinfo("Progress", "Deleting TEMP files...")
     time.sleep(1)
